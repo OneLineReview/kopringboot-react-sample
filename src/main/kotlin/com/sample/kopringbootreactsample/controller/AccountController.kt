@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable
 class AccountController(
     private val accountService: AccountService
 ) {
-    @GetMapping("/name/{id}")
+    @GetMapping("/api/name/{id}")
     fun getName(@PathVariable id: Long? = null): ResponseEntity<String> {
         if (id == null) {
             return ResponseEntity.notFound().build();
@@ -18,7 +18,7 @@ class AccountController(
         return ResponseEntity.ok(accountService.getName(id));
     }
 
-    @GetMapping("/email/{id}")
+    @GetMapping("/api/email/{id}")
     fun getEmail(@PathVariable id: Long? = null): ResponseEntity<String> {
         if (id == null) {
             return ResponseEntity.badRequest().build();
